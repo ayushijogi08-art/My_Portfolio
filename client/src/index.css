@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark Mode Default Palette - Deep Slate Blue/Charcoal Base */
+  --background: 222 47% 11%;     /* #0f172a */
+  --foreground: 210 40% 98%;     /* #f8fafc */
+  
+  --primary: 262 83% 58%;        /* Violet-ish for accents */
+  --primary-foreground: 210 40% 98%;
+  
+  --secondary: 199 89% 48%;      /* Cyan for gradients */
+  --secondary-foreground: 210 40% 98%;
+  
+  --muted: 217 33% 17%;
+  --muted-foreground: 215 20% 65%;
+  
+  --accent: 262 83% 58%;
+  --accent-foreground: 210 40% 98%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 217 33% 17%;
+  --input: 217 33% 17%;
+  --ring: 262 83% 58%;
+
+  --radius: 0.75rem;
+}
+
+/* Light Mode Overrides (if toggled) */
+.light {
+  --background: 210 40% 98%;    /* bg-slate-50 equivalent */
+  --foreground: 222 47% 11%;
+  
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+
+  --glass-bg: 255 255 255 / 1;    /* Solid white for cards in light mode */
+}
+
+.dark {
+  --background: 222 47% 11%;
+  --foreground: 210 40% 98%;
+  --glass-bg: 255 255 255 / 0.05;
+  --glass-border: 255 255 255 / 0.1;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  code, pre {
+    font-family: 'Fira Code', monospace;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background-color: rgb(var(--glass-bg));
+    @apply backdrop-blur-md border border-white/10 shadow-xl;
+  }
+  
+  .dark .glass-panel {
+    @apply bg-white/5 border-white/10;
+  }
+
+  .light .glass-panel {
+    @apply bg-white border-gray-200 shadow-md;
+  }
+  
+  .glass-panel-hover {
+    @apply transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:-translate-y-1;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-violet-500;
+  }
+  
+  .blob {
+    @apply absolute rounded-full blur-3xl opacity-30 animate-pulse;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full border-4 border-background;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground;
+}

@@ -1,0 +1,17 @@
+Add a fixed background with large, soft animated gradient orbs (pastel blue and pink).
+Style all containers (Project cards, Form, Education) to have a white background with 10% opacity, a backdrop-filter blur of 10px, and a thin white border.
+Change all fonts to 'Poppins' from Google Fonts.
+Make the Hero section a flex-row with the text on the left and the profile image on the right. 
+Integrate 'AOS' (Animate On Scroll) library so that the Skill and Project cards slide up and fade in as the user scrolls down.
+In the Hero section, add a typewriter animation effect to the subtitle 'Full-Stack Web Developer'.
+Redesign the 'Projects' section cards to accept an image thumbnail at the top of the card, with the title and description below it.
+Make the 'Contact Me' button pulse slowly to draw attention."
+"Use #E0E0E0 (Light Gray) for the body text instead of pure white to reduce contrast strain. Ensure the Cyan-to-Violet gradient flows from top-left to bottom-right on the headings for a dynamic look."
+"Redesign the 'About Me' text container to look like a VS Code editor window. Add a top bar with 3 window control dots (red, yellow, green). Add line numbers on the left side. Format the biography text to look like a JavaScript object (e.g., const developer = { name: 'Ayushi', passion: 'Web Dev' };). Use a monospaced font like 'Fira Code' for this section."
+"Add a dark/light mode toggle switch to the navigation bar. Use CSS variables for colors so the theme changes instantly when the button is clicked. Default to Dark Mode. Save the user's preference in localStorage so it remembers their choice."
+Background: Use a deep slate blue/charcoal #0f172a (not pure black).
+Text: Use #e2e8f0 (off-white) for better readability.
+Cards: Make the Project and Skill cards slightly lighter than the background (#1e293b) so they stand out without borders.
+Accents: Keep your Cyan-to-Blue text gradients; they will pop significantly more against this dark background.
+Navbar: Add a toggle icon (Sun/Moon) that allows the user to switch back to the light version if they want."
+add the institued name Smt.Laxmibai Radhakisan Toshniwal
