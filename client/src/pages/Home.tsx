@@ -8,14 +8,9 @@ import {
   Globe, 
   Smartphone, 
   Server, 
-  Terminal, 
-  Phone, 
-  Send, 
-  Eye,
-  ExternalLink,
-  X
+  Terminal,
+  Eye
 } from "lucide-react";
-import { FaTwitter } from "react-icons/fa";
 import { FaReact, FaNodeJs, FaJava, FaPython, FaHtml5, FaCss3, FaJs, FaAndroid } from "react-icons/fa";
 import { SiFlutter, SiDart, SiFirebase, SiExpress, SiMongodb, SiMysql, SiCplusplus, SiPostman } from "react-icons/si";
 
@@ -24,59 +19,39 @@ import { BackgroundOrbs } from "@/components/BackgroundOrbs";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useSubmitContact } from "@/hooks/use-contact";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
-import { insertMessageSchema } from "@shared/schema";
-import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
 
-// Form Schema
-const formSchema = insertMessageSchema.extend({
-  email: z.string().email("Please enter a valid email"),
-});
-
-interface Project {
+interface FeaturedProject {
+  index: number;
   title: string;
-  description: string;
-  longDescription: string;
   tech: string[];
-  image: string;
+  features: string[];
 }
 
-// Mock Projects Data
-const projects: Project[] = [
+// Featured Enterprise Architecture Projects
+const featuredProjects: FeaturedProject[] = [
   {
-    title: "FinanceWise | Full-Stack Financial Management Application",
-    description: "A cross-platform mobile application engineered for secure, real-time expense tracking and personal budgeting.",
-    longDescription: "Overview:\nA cross-platform mobile application engineered for secure, real-time expense tracking and personal budgeting. The system utilizes a custom Node.js backend to handle complex financial data and ensure strict multi-user data isolation.\n\nTechnical Implementations:\n\nSecure Authentication: Implemented a multi-step JWT login system with an automated OTP recovery flow integrated via EmailJS.\n\nFinancial Logic Layer: Programmed mathematically accurate Profit & Loss algorithms directly into the backend to reduce client-side processing load and maintain 100% data integrity.\n\nDatabase Architecture: Engineered user-ID-based data partitioning within MongoDB to ensure individual account security and seamless cross-device synchronization.",
-    tech: ["Flutter", "Node.js", "Express", "MongoDB", "JWT", "EmailJS"],
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80"
+    index: 1,
+    title: "Nexa (AI-Powered B2B & B2C E-Commerce OS)",
+    tech: ["React.js", "Node.js", "Express", "MongoDB", "Gemini API", "Multer"],
+    features: [
+      "Architected a full-stack, dual-sided e-commerce platform featuring a B2C customer storefront and a secure B2B enterprise dashboard for live inventory and order pipeline management.",
+      "Integrated the Google Gemini API to build an autonomous B2B proposal generator, calculating optimized product mixes based strictly on live database stock and corporate budget constraints.",
+      "Engineered a context-aware customer support chatbot for the B2C storefront, utilizing session history to execute live order tracking and automated refund protocols without human intervention.",
+      "Enforced strict structured JSON outputs (responseSchema) from the LLM to seamlessly parse unstructured AI-generated business logic into deterministic MongoDB database records.",
+      "Built secure multipart/form-data upload pipelines using Multer to handle dynamic product catalog images alongside text data, preventing backend server crashes."
+    ]
   },
   {
-    title: "Grocery Store Management System",
-    description: "A responsive web-based enterprise interface designed to streamline retail operations, inventory tracking, and vendor ledgers.",
-    longDescription: "Overview:\nA responsive web-based enterprise interface designed to streamline retail operations, inventory tracking, and vendor ledgers. The architecture focuses on fast UI rendering and real-time operational efficiency for store managers.\n\nTechnical Implementations:\n\nDynamic UI & State: Built a highly responsive, cross-device interface using modern JavaScript DOM manipulation and utility-first Tailwind CSS.\n\nCommerce-Driven Logic: Developed automated reporting scripts to track daily revenue, inventory costs, and complex vendor payment ledgers based on standard accounting principles.\n\nData Processing: Implemented efficient front-end search, filtering, and data-sorting mechanisms to handle large lists of store items without UI lag.",
-    tech: ["HTML", "Tailwind CSS", "JavaScript"],
-    image: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=800&q=80"
-  },
-  {
-    title: "Video Streaming Platform",
-    description: "A highly scalable RESTful API backend architecture designed to support a full-scale video streaming service.",
-    longDescription: "Overview:\nA highly scalable RESTful API backend architecture designed to support a full-scale video streaming service. The system is optimized for heavy media routing, secure user access, and relational data retrieval.\n\nTechnical Implementations:\n\nMedia Pipeline Integration: Architected a secure upload pipeline connecting the Express server to Cloudinary for optimized media storage and rapid asset delivery.\n\nRelational Data Modeling: Designed complex MongoDB schemas using Mongoose to link user accounts, subscription tiers, and individual watch histories without database bloat.\n\nEndpoint Security: Built custom middleware for JWT authentication to protect premium video routes and manage role-based access control.",
-    tech: ["Node.js", "Express", "MongoDB", "JWT"],
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80"
-  },
-  {
-    title: "Interactive Developer Portfolio",
-    description: "A high-performance, modern web application designed to showcase full-stack engineering capabilities.",
-    longDescription: "Overview:\nA high-performance, modern web application designed to showcase full-stack engineering capabilities. Built with a focus on strict typing, component reusability, and advanced user experience.\n\nTechnical Implementations:\n\nComponent Architecture: Engineered using modular React and strictly typed TypeScript to ensure maintainability, catch errors at compile-time, and prevent runtime bugs.\n\nAdvanced Styling: Utilized Tailwind CSS to create a custom, responsive glassmorphism design system, complete with a fully functional dark/light theme toggle.\n\nInteractive UX: Integrated Framer Motion for highly optimized, smooth page transitions and micro-interactions that execute without sacrificing initial page load speed.",
-    tech: ["React", "TypeScript", "Tailwind", "Framer Motion"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+    index: 2,
+    title: "Offline Perceptual Clustering Engine",
+    tech: ["Dart", "Flutter", "VP-Tree", "dHash Algorithm", "Heuristic Logic"],
+    features: [
+      "Engineered a high-speed, offline media utility to scan, cluster, and manage visually identical image files across local directories without relying on metadata or file names.",
+      "Implemented a Difference Hashing (dHash) algorithm with a 1:1 center crop to generate 64-bit binary signatures, neutralizing scale, compression, and aspect-ratio distortions.",
+      "Architected a Vantage Point Tree (VP-Tree) data structure to group mathematically similar binary strings using a Hamming distance threshold of 8, reducing search time complexity to O(N log N).",
+      "Developed a heuristic survivor logic pipeline that mathematically ranks clustered duplicates by total megapixels, uncompressed disk space, and directory path to autonomously recommend the highest-quality original.",
+      "Optimized memory buffers and on-device processing to handle 10,000+ photo galleries without crashing or heavily draining the battery of low-end hardware."
+    ]
   }
 ];
 
@@ -126,81 +101,10 @@ const skillCategories = [
 ];
 
 export default function Home() {
-  const contactMutation = useSubmitContact();
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: ""
-    }
-  });
-
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    contactMutation.mutate(values, {
-      onSuccess: () => form.reset()
-    });
-  };
-
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 relative">
       <BackgroundOrbs />
       <Navbar />
-
-      {/* Project Detail Modal */}
-      <AnimatePresence>
-        {selectedProject && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="glass-panel max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-2xl relative"
-            >
-              <button 
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-10"
-              >
-                <X className="w-5 h-5" />
-              </button>
-              
-              <div className="h-64 w-full relative">
-                <img 
-                  src={selectedProject.image} 
-                  alt={selectedProject.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
-              </div>
-              
-              <div className="p-8">
-                <h2 className="text-3xl font-bold mb-4 text-gradient">{selectedProject.title}</h2>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {selectedProject.tech.map(t => (
-                    <span key={t} className="text-xs px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <p className="text-gray-800 dark:text-muted-foreground leading-relaxed text-base whitespace-pre-wrap">
-                  {selectedProject.longDescription.split('\n').map((line, i) => {
-                    if (line.startsWith('Overview:') || line.startsWith('Technical Implementations:')) {
-                      return <span key={i} className="font-bold block mt-4 mb-2">{line}</span>;
-                    }
-                    return <span key={i} className="block mb-2">{line}</span>;
-                  })}
-                </p>
-                <div className="mt-8 flex justify-end">
-                  <Button onClick={() => setSelectedProject(null)} className="rounded-full px-8">
-                    Close
-                  </Button>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
 
       {/* HERO SECTION */}
       <section id="home" className="min-h-screen flex items-center justify-center pt-16 px-4">
@@ -354,50 +258,59 @@ export default function Home() {
       {/* PROJECTS SECTION */}
       <section id="projects" className="py-24 px-4">
         <div className="max-w-6xl mx-auto">
-          <SectionHeading title="Featured Projects" subtitle="Some of my recent work" />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
+          <SectionHeading title="Featured Enterprise Architectures" subtitle="Production-grade systems engineered for scale and performance" />
+
+          <div className="flex flex-col gap-8">
+            {featuredProjects.map((project, index) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group cursor-pointer"
-                onClick={() => setSelectedProject(project)}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
               >
-                <div className="glass-panel rounded-xl overflow-hidden h-full flex flex-col glass-panel-hover">
-                  {/* Image with overlay */}
-                  <div className="relative h-64 overflow-hidden">
-                    <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors z-10" />
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute bottom-4 right-4 z-20">
-                      <div className="p-2 rounded-full bg-black/50 backdrop-blur-sm text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                        <Eye className="w-5 h-5" />
+                <div className="glass-panel rounded-2xl overflow-hidden w-full border border-white/10 dark:border-white/5 shadow-xl">
+                  {/* Card Header */}
+                  <div className="px-8 pt-8 pb-6 border-b border-white/10 dark:border-white/5">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                      <div className="flex items-center gap-4">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                          0{project.index}
+                        </div>
+                        <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white leading-snug">
+                          {project.title}
+                        </h3>
                       </div>
                     </div>
-                  </div>
-                  
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-700 dark:text-muted-foreground text-sm mb-4 flex-grow leading-relaxed">
-                      {project.description}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2">
+
+                    {/* Tech Stack Tags */}
+                    <div className="flex flex-wrap gap-2 mt-5">
                       {project.tech.map(t => (
-                        <span key={t} className="text-xs px-2 py-1 rounded bg-white/5 border border-white/10 text-primary/80">
+                        <span
+                          key={t}
+                          className="text-xs font-semibold px-3 py-1.5 rounded-full bg-primary/10 border border-primary/25 text-cyan-600 dark:text-cyan-400 tracking-wide"
+                        >
                           {t}
                         </span>
                       ))}
                     </div>
+                  </div>
+
+                  {/* Architectural Features */}
+                  <div className="px-8 py-7">
+                    <p className="text-xs font-bold tracking-widest uppercase text-gray-500 dark:text-muted-foreground mb-5">
+                      Architectural Features
+                    </p>
+                    <ul className="space-y-4">
+                      {project.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <span className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gradient-to-br from-cyan-400 to-violet-500" />
+                          <span className="text-sm text-gray-700 dark:text-muted-foreground leading-relaxed">
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </motion.div>
