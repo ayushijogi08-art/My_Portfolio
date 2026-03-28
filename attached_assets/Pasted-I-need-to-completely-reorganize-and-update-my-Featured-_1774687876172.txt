@@ -1,0 +1,68 @@
+I need to completely reorganize and update my "Featured Projects" state array. 
+
+CRITICAL INSTRUCTION: I already have a working UI grid with interactive popup Modals and images. DO NOT rewrite my UI components, CSS, or Modal logic. 
+
+Your ONLY task is to take the 5 JSON objects below and replace my entire current projects array with them, adhering strictly to the provided order and naming. 
+
+For the images, update ALL projects to use realistic, high-quality placeholder images from Unsplash (e.g., using images.unsplash.com or source.unsplash.com with specific keywords).
+
+Here is the exact data for the 5 projects, in order:
+
+FEATURED PROJECT 1:
+- Title: Nexa | AI-Powered B2B & B2C E-Commerce OS
+- Image Keyword: Enterprise dashboard or e-commerce UI
+- Tags: React.js, Node.js, Express, MongoDB, Gemini API, Multer
+- Card Short Description: A full-stack, dual-sided e-commerce platform featuring a B2C storefront and a B2B enterprise dashboard for live inventory management.
+- Modal Overview: A production-grade e-commerce OS engineered for scale. The system utilizes Google's Gemini API to automate B2B sales calculations and features a context-aware chatbot for B2C customer support.
+- Modal Technical Implementations: 
+  * Autonomous Proposals: Integrated Gemini API to build a B2B proposal generator calculating product mixes based on live stock and budgets.
+  * AI Support Agent: Engineered a context-aware chatbot utilizing session history to execute live order tracking and refunds.
+  * Strict Data Parsing: Enforced structured JSON outputs (responseSchema) from the LLM to parse unstructured AI logic into deterministic MongoDB records.
+  * Secure Asset Pipeline: Built multipart/form-data upload pipelines using Multer to handle dynamic catalog images without server crashes.
+
+FEATURED PROJECT 2:
+- Title: FinanceWise | Full-Stack Financial Management Application
+- Image Keyword: Digital financial analytics or budget app UI
+- Tags: Flutter, Node.js, Express, MongoDB, JWT, EmailJS
+- Card Short Description: A cross-platform mobile application engineered for secure, real-time expense tracking and personal budgeting.
+- Modal Overview: A cross-platform mobile application engineered for secure, real-time expense tracking and personal budgeting. The system utilizes a custom Node.js backend to handle complex financial data and ensure strict multi-user data isolation.
+- Modal Technical Implementations:
+  * Secure Authentication: Implemented a multi-step JWT login system with automated OTP recovery integrated via EmailJS.
+  * Automated Analytics: Built scalable data aggregation pipelines in MongoDB to generate real-time financial health reports.
+  * State Management: Engineered a high-performance Flutter UI with optimized state management for smooth data synchronization.
+
+FEATURED PROJECT 3:
+- Title: Duplicate Media Engine
+- Image Keyword: Data storage or computer memory
+- Tags: Dart, Flutter, VP-Tree, dHash Algorithm, Heuristic Logic
+- Card Short Description: A high-speed, offline media utility engineered to scan, cluster, and manage visually identical image files across local directories.
+- Modal Overview: An advanced algorithmic utility that bypasses standard metadata scraping. It utilizes cryptographic hashing and geometric tree structures to accurately identify identical photos regardless of compression or scaling.
+- Modal Technical Implementations:
+  * Difference Hashing (dHash): Implemented an algorithm with a 1:1 center crop to generate 64-bit binary signatures, neutralizing scale and compression distortions.
+  * Vantage Point Tree (VP-Tree): Architected a data structure to group mathematically similar binary strings using a Hamming distance threshold of 8, achieving O(N log N) search complexity.
+  * Heuristic Logic: Developed a pipeline that mathematically ranks clustered duplicates by total megapixels and uncompressed disk space to recommend the original file.
+  * Memory Optimization: Optimized on-device processing buffers to handle 10,000+ photo galleries without crashing low-end hardware.
+
+FEATURED PROJECT 4:
+- Title: Grocery Store Management System
+- Image Keyword: Modern grocery store interior
+- Tags: HTML, Tailwind CSS, Vanilla JavaScript
+- Card Short Description: A responsive web-based enterprise interface designed to streamline retail operations, inventory tracking, and vendor ledgers.
+- Modal Overview: A responsive web-based enterprise interface designed to streamline retail operations, inventory tracking, and vendor ledgers. Built entirely without frameworks to demonstrate deep DOM manipulation expertise.
+- Modal Technical Implementations:
+  * Vanilla JS Mastery: Developed automated Profit & Loss calculation scripts (daily, monthly, yearly) strictly using vanilla JavaScript DOM manipulation.
+  * Real-Time Data Sync: Integrated Firebase Realtime Database to handle secure, cross-device data synchronization.
+  * Secure Auth Pipeline: Built and maintained a secure Firebase Auth user authentication flow.
+
+FEATURED PROJECT 5:
+- Title: Video Streaming Backend
+- Image Keyword: Cloud data servers or media streaming
+- Tags: Node.js, Express, MongoDB, JWT, Cloudinary
+- Card Short Description: A highly scalable RESTful API backend architecture designed to support a full-scale video streaming service with secure media delivery.
+- Modal Overview: A robust backend system engineered for heavy media routing, secure user access, and relational data retrieval. The architecture intentionally decouples metadata storage in MongoDB from high-bandwidth video delivery via Cloudinary to maximize server performance.
+- Modal Technical Implementations:
+  * Media Pipeline Integration: Architected a secure upload pipeline connecting the Node.js server to Cloudinary for optimized media storage and rapid asset delivery.
+  * Relational Data Modeling: Designed complex MongoDB schemas using Mongoose to link user accounts, subscription tiers, and individual watch histories without database locks.
+  * Endpoint Security: Built custom middleware for JWT authentication to protect premium video routes and user modification endpoints.
+
+Ensure the Unsplash image URLs are formatted correctly, apply specific relevant keywords to maximize image quality, and make sure that clicking ANY of these five cards triggers the exact same popup modal as before, loading the corresponding detailed content.
