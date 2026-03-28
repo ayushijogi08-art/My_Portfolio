@@ -11,10 +11,13 @@ import {
   Server, 
   Terminal,
   Eye,
-  X
+  X,
+  Cloud,
+  ShieldCheck,
+  Layers
 } from "lucide-react";
-import { FaReact, FaNodeJs, FaJava, FaPython, FaHtml5, FaCss3, FaJs, FaAndroid } from "react-icons/fa";
-import { SiFlutter, SiDart, SiFirebase, SiExpress, SiMongodb, SiMysql, SiCplusplus, SiPostman } from "react-icons/si";
+import { FaReact, FaNodeJs, FaHtml5, FaCss3, FaJs, FaAndroid, FaGitAlt, FaGithub } from "react-icons/fa";
+import { SiFlutter, SiDart, SiFirebase, SiExpress, SiMongodb, SiMysql, SiPostman, SiTailwindcss, SiCloudinary } from "react-icons/si";
 
 import { Navbar } from "@/components/Navbar";
 import { BackgroundOrbs } from "@/components/BackgroundOrbs";
@@ -72,7 +75,7 @@ const projects: Project[] = [
   },
   {
     title: "Grocery Store Management System",
-    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80&fit=crop",
+    image: "https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=800&q=80&fit=crop",
     shortDescription: "A responsive web-based enterprise interface designed to streamline retail operations, inventory tracking, and vendor ledgers.",
     tech: ["HTML", "Tailwind CSS", "Vanilla JavaScript"],
     overview: "A responsive web-based enterprise interface designed to streamline retail operations, inventory tracking, and vendor ledgers. Built entirely without frameworks to demonstrate deep DOM manipulation expertise.",
@@ -102,10 +105,9 @@ const skillCategories = [
     icon: <Globe className="w-6 h-6 text-cyan-400" />,
     skills: [
       { name: "React.js", icon: <FaReact /> },
-      { name: "HTML5", icon: <FaHtml5 /> },
-      { name: "CSS3", icon: <FaCss3 /> },
-      { name: "JavaScript", icon: <FaJs /> },
-      { name: "Tailwind CSS", icon: <Code2 /> }
+      { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+      { name: "HTML5 / CSS3", icon: <FaHtml5 /> },
+      { name: "JavaScript (ES6+)", icon: <FaJs /> }
     ]
   },
   {
@@ -114,13 +116,12 @@ const skillCategories = [
     skills: [
       { name: "Node.js", icon: <FaNodeJs /> },
       { name: "Express.js", icon: <SiExpress /> },
-      { name: "MongoDB", icon: <SiMongodb /> },
-      { name: "MySQL", icon: <SiMysql /> },
-      { name: "Firebase", icon: <SiFirebase /> }
+      { name: "MongoDB / Mongoose", icon: <SiMongodb /> },
+      { name: "MySQL", icon: <SiMysql /> }
     ]
   },
   {
-    title: "Mobile App Dev",
+    title: "Mobile App Architecture",
     icon: <Smartphone className="w-6 h-6 text-pink-500" />,
     skills: [
       { name: "Flutter", icon: <SiFlutter /> },
@@ -129,13 +130,23 @@ const skillCategories = [
     ]
   },
   {
-    title: "Programming & Tools",
-    icon: <Terminal className="w-6 h-6 text-yellow-500" />,
+    title: "Cloud, AI & Security",
+    icon: <Cloud className="w-6 h-6 text-orange-400" />,
     skills: [
-      { name: "Java", icon: <FaJava /> },
-      { name: "Python", icon: <FaPython /> },
-      { name: "C++", icon: <SiCplusplus /> },
-      { name: "Postman", icon: <SiPostman /> }
+      { name: "Google Gemini API", icon: <Code2 className="text-base" /> },
+      { name: "Cloudinary", icon: <SiCloudinary /> },
+      { name: "JWT Authentication", icon: <ShieldCheck className="text-base" /> },
+      { name: "Firebase", icon: <SiFirebase /> }
+    ]
+  },
+  {
+    title: "Architecture & Tools",
+    icon: <Layers className="w-6 h-6 text-yellow-500" />,
+    skills: [
+      { name: "DSA (VP-Tree, Hashing)", icon: <Layers className="text-base" /> },
+      { name: "Git & GitHub", icon: <FaGitAlt /> },
+      { name: "Postman", icon: <SiPostman /> },
+      { name: "Multer", icon: <Code2 className="text-base" /> }
     ]
   }
 ];
@@ -256,7 +267,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <SectionHeading title="Tech Stack" subtitle="Tools & Technologies I work with" />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {skillCategories.map((category, idx) => (
               <motion.div
                 key={category.title}
