@@ -14,6 +14,10 @@ import {
 import { FaReact, FaNodeJs, FaJava, FaPython, FaHtml5, FaCss3, FaJs, FaAndroid } from "react-icons/fa";
 import { SiFlutter, SiDart, SiFirebase, SiExpress, SiMongodb, SiMysql, SiCplusplus, SiPostman } from "react-icons/si";
 
+import groceryImg from "@assets/image_1772780239120.png";
+import streamingImg from "@assets/image_1772780564742.png";
+import portfolioImg from "@assets/image_1772783971369.png";
+
 import { Navbar } from "@/components/Navbar";
 import { BackgroundOrbs } from "@/components/BackgroundOrbs";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -25,6 +29,14 @@ interface FeaturedProject {
   title: string;
   tech: string[];
   features: string[];
+}
+
+interface OtherProject {
+  title: string;
+  tech: string[];
+  overview: string;
+  implementations: { label: string; detail: string }[];
+  image: string;
 }
 
 // Featured Enterprise Architecture Projects
@@ -52,6 +64,43 @@ const featuredProjects: FeaturedProject[] = [
       "Developed a heuristic survivor logic pipeline that mathematically ranks clustered duplicates by total megapixels, uncompressed disk space, and directory path to autonomously recommend the highest-quality original.",
       "Optimized memory buffers and on-device processing to handle 10,000+ photo galleries without crashing or heavily draining the battery of low-end hardware."
     ]
+  }
+];
+
+// Other Projects (restored)
+const otherProjects: OtherProject[] = [
+  {
+    title: "Grocery Store Management System",
+    tech: ["HTML", "Tailwind CSS", "JavaScript"],
+    overview: "A responsive web-based enterprise interface designed to streamline retail operations, inventory tracking, and vendor ledgers. The architecture focuses on fast UI rendering and real-time operational efficiency for store managers.",
+    implementations: [
+      { label: "Dynamic UI & State", detail: "Built a highly responsive, cross-device interface using modern JavaScript DOM manipulation and utility-first Tailwind CSS." },
+      { label: "Commerce-Driven Logic", detail: "Developed automated reporting scripts to track daily revenue, inventory costs, and complex vendor payment ledgers based on standard accounting principles." },
+      { label: "Data Processing", detail: "Implemented efficient front-end search, filtering, and data-sorting mechanisms to handle large lists of store items without UI lag." }
+    ],
+    image: groceryImg
+  },
+  {
+    title: "Video Streaming Platform",
+    tech: ["Node.js", "Express", "MongoDB", "JWT"],
+    overview: "A highly scalable RESTful API backend architecture designed to support a full-scale video streaming service. The system is optimized for heavy media routing, secure user access, and relational data retrieval.",
+    implementations: [
+      { label: "Media Pipeline Integration", detail: "Architected a secure upload pipeline connecting the Express server to Cloudinary for optimized media storage and rapid asset delivery." },
+      { label: "Relational Data Modeling", detail: "Designed complex MongoDB schemas using Mongoose to link user accounts, subscription tiers, and individual watch histories without database bloat." },
+      { label: "Endpoint Security", detail: "Built custom middleware for JWT authentication to protect premium video routes and manage role-based access control." }
+    ],
+    image: streamingImg
+  },
+  {
+    title: "Interactive Developer Portfolio",
+    tech: ["React", "TypeScript", "Tailwind", "Framer Motion"],
+    overview: "A high-performance, modern web application designed to showcase full-stack engineering capabilities. Built with a focus on strict typing, component reusability, and advanced user experience.",
+    implementations: [
+      { label: "Component Architecture", detail: "Engineered using modular React and strictly typed TypeScript to ensure maintainability, catch errors at compile-time, and prevent runtime bugs." },
+      { label: "Advanced Styling", detail: "Utilized Tailwind CSS to create a custom, responsive glassmorphism design system, complete with a fully functional dark/light theme toggle." },
+      { label: "Interactive UX", detail: "Integrated Framer Motion for highly optimized, smooth page transitions and micro-interactions that execute without sacrificing initial page load speed." }
+    ],
+    image: portfolioImg
   }
 ];
 
@@ -315,6 +364,74 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* Other Projects */}
+          <div className="mt-20">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Other Projects</h3>
+            <p className="text-gray-500 dark:text-muted-foreground text-sm mb-10">More work from my development journey</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {otherProjects.map((project, index) => (
+                <motion.div
+                  key={project.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="glass-panel rounded-2xl overflow-hidden border border-white/10 dark:border-white/5 shadow-lg flex flex-col"
+                >
+                  {/* Project Image */}
+                  <div className="w-full h-44 overflow-hidden bg-black/20 flex-shrink-0">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+                    />
+                  </div>
+
+                  {/* Card Body */}
+                  <div className="p-6 flex flex-col flex-1">
+                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-3 leading-snug">
+                      {project.title}
+                    </h4>
+
+                    {/* Tech Tags */}
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {project.tech.map(t => (
+                        <span
+                          key={t}
+                          className="text-xs font-semibold px-2.5 py-1 rounded-full bg-primary/10 border border-primary/25 text-cyan-600 dark:text-cyan-400"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Overview */}
+                    <p className="text-xs text-gray-600 dark:text-muted-foreground leading-relaxed mb-4">
+                      {project.overview}
+                    </p>
+
+                    {/* Technical Implementations */}
+                    <div className="mt-auto space-y-2.5">
+                      <p className="text-xs font-bold tracking-widest uppercase text-gray-400 dark:text-muted-foreground">
+                        Technical Implementations
+                      </p>
+                      {project.implementations.map((item, i) => (
+                        <div key={i} className="flex items-start gap-2">
+                          <span className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gradient-to-br from-cyan-400 to-violet-500" />
+                          <p className="text-xs text-gray-600 dark:text-muted-foreground leading-relaxed">
+                            <span className="font-semibold text-gray-800 dark:text-gray-300">{item.label}: </span>
+                            {item.detail}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
